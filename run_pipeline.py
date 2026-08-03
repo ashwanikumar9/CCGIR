@@ -155,20 +155,13 @@ def install_node_deps():
     # Check if Node.js and npm are available
     node_check = run_cmd("node --version", check=False, capture=True)
     if isinstance(node_check, subprocess.CalledProcessError) or node_check.returncode != 0:
-        warn("Node.js is not installed or not in PATH.")
-        print("  Attempting to install Node.js via conda...")
-        conda_check = run_cmd("conda --version", check=False, capture=True)
-        if not isinstance(conda_check, subprocess.CalledProcessError) and conda_check.returncode == 0:
-            result = run_cmd("conda install -y -c conda-forge nodejs", check=False, capture=False)
-            if isinstance(result, subprocess.CalledProcessError) or result.returncode != 0:
-                fail("Failed to install Node.js via conda.")
-                return False
-            success("Node.js installed via conda.")
-        else:
-            fail("conda is not available.")
-            warn("The Solidity AST parser (util.py) requires Node.js.")
-            warn("Install Node.js from https://nodejs.org/ and re-run this pipeline.")
-            return False
+        fail("Node.js is not installed or not in PATH.")
+        warn("The Solidity AST parser (util.py) requires Node.js.")
+        warn("Please install Node.js locally using these commands:")
+        warn("  wget https://nodejs.org/dist/v20.11.1/node-v20.11.1-linux-x64.tar.xz")
+        warn("  tar -xf node-v20.11.1-linux-x64.tar.xz")
+        warn("  export PATH=\"$PWD/node-v20.11.1-linux-x64/bin:$PATH\"")
+        return False
 
     npm_check = run_cmd("npm --version", check=False, capture=True)
     if isinstance(npm_check, subprocess.CalledProcessError) or npm_check.returncode != 0:
