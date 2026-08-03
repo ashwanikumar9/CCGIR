@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-from transformers import AutoTokenizer, RobertaModel
+from transformers import RobertaTokenizer, RobertaModel
 import pandas as pd
 
 MODEL_NAME = "model/codebert" # 本地模型文件
@@ -16,7 +16,7 @@ MAX_LENGTH = 256
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def build_model(name):
-    tokenizer = AutoTokenizer.from_pretrained(name)
+    tokenizer = RobertaTokenizer.from_pretrained(name)
     model = RobertaModel.from_pretrained(name)
     model = model.to(DEVICE)
     return tokenizer, model
