@@ -7,7 +7,7 @@ ccgir.encode_file()
 
 print("加载索引")
 ccgir.build_index(n_list=1)
-ccgir.index.nprob = 1
+ccgir.index.nprobe = 1
 
 code = "function finalize ( ) after deadline { require ( ! crowdsale ended ) ; token reward . burn ( ) ; finalize ( token owner , amount raised ) ; crowdsale ended = BOOL_ ; }"
 

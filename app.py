@@ -11,7 +11,7 @@ ccgir.encode_file()
 
 print("加载索引")
 ccgir.build_index(n_list=1)
-ccgir.index.nprob = 1
+ccgir.index.nprobe = 1
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False

@@ -108,7 +108,7 @@ if __name__ == '__main__':
     ccgir.encode_file()
     print("加载索引")
     ccgir.build_index(n_list=1)
-    ccgir.index.nprob = 1
+    ccgir.index.nprobe = 1
     sim_nl_list, c_list, sim_score_list, nl_list = [], [], [], []
     data_list = []
     for i in tqdm(range(len(test_code_list))):
