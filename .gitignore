@@ -7,10 +7,6 @@ dist/
 build/
 *.egg
 
-# Model files (too large for GitHub)
-model/codebert/
-model/code_vector_whitening.pkl
-
 # Node.js
 node_modules/
 package-lock.json
