@@ -24,11 +24,11 @@ def download_codebert(model_dir="model/codebert"):
     print("    This may take a few minutes depending on your internet speed.\n")
 
     try:
-        from transformers import RobertaTokenizer, RobertaModel
+        from transformers import AutoTokenizer, RobertaModel
 
         # Download and save tokenizer
         print("    Downloading tokenizer...")
-        tokenizer = RobertaTokenizer.from_pretrained("microsoft/codebert-base")
+        tokenizer = AutoTokenizer.from_pretrained("microsoft/codebert-base")
         tokenizer.save_pretrained(model_dir)
         print("    [OK] Tokenizer saved.")
 

@@ -6,7 +6,7 @@ import Levenshtein
 from eval_metrics import compute_metrics
 from tqdm import tqdm
 
-from transformers import RobertaTokenizer, RobertaModel
+from transformers import AutoTokenizer, RobertaModel
 import pandas as pd
 
 from bert_whitening import sents_to_vecs, transform_and_normalize
@@ -27,7 +27,7 @@ test_ast_list = df[0].tolist()
 df = pd.read_csv("data/test_comment_clean.csv", header=None)
 test_nl_list = df[0].tolist()
 
-tokenizer = RobertaTokenizer.from_pretrained("model/codebert")
+tokenizer = AutoTokenizer.from_pretrained("model/codebert")
 model = RobertaModel.from_pretrained("model/codebert")
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(DEVICE)
