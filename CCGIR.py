@@ -3,7 +3,7 @@ import faiss
 import torch
 import numpy as np
 import Levenshtein
-from nlgeval import compute_metrics
+from eval_metrics import compute_metrics
 from tqdm import tqdm
 
 from transformers import RobertaTokenizer, RobertaModel

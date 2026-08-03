@@ -1,0 +1,12 @@
+torch
+transformers
+faiss-cpu
+numpy
+pandas
+python-Levenshtein
+# nlgeval replaced by local eval_metrics.py (compatible with Python 3.13+)
+flask
+flask-cors
+PyExecJS
+javalang
+nltk
